@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Domicilios</title>
+    </head>
+    <body>
+        <h1>Bienvenido al sistema administrativo de personas (SAP)</h1>
+        <div>
+            <h3>Numero de Domicilios: {{no_domicilios}}</h3>
+        </div>
+        <div>
+            <a href="nuevo_domicilio">Agregar domicilio</a>
+        </div>
+        <div>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Calle</th>
+                        <th>N° Calle</th>
+                        <th>Pais</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for domicilio in domicilios%}
+                    <tr>
+                        <td>{{domicilio.id}}</td>
+                        <td>{{domicilio.calle}}</td>
+                        <td>{{domicilio.no_calle}}</td>
+                        <td>{{domicilio.pais}}</td>
+                        <td><a href="detalle_domicilio/{{domicilio.id}}">Ver</a></td>
+                        <td><a href="editar_domicilio/{{domicilio.id}}">Editar</a></td>
+                        <td><a href="eliminar_domicilio/{{domicilio.id}}">Eliminar</a></td>
+                    </tr>
+                    {% endfor%}
+                </tbody>
+            </table>
+            <div>
+                <a href="/">Ver Personas</a>
+            </div>
+        </div>
+    </body>
+</html>
